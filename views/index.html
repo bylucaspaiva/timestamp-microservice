@@ -5,12 +5,21 @@
       <title>Timestamp Microservice | freeCodeCamp.org</title>
       <link rel="shortcut icon" href="https://cdn.freecodecamp.org/universal/favicons/favicon-32x32.png" type="image/x-icon"/>
       <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+      <link href="skeleton.css" rel="stylesheet" type="text/css">
       <link href="style.css" rel="stylesheet" type="text/css">
    </head>
 
    <body>
     <h1>Timestamp Microservice</h1>
-    <hr />
+    <form action="/api" method="POST">
+      <label for="url_input">Enter an ISO Date or Timestamp</label>
+      <input id="input-url" type="text" name="input" />
+      <input type="submit" value="GET TIME" />
+    </form>
+
+    <button onclick="window.location.href='/api'">
+      Get Current Time
+    </button>
     <div class="container">
       <h3>Example Usage:</h3>
       <ul>
@@ -25,7 +34,7 @@
     </div>
     <div class="footer">
       <p>
-        By <a href="https://www.freecodecamp.org/">freeCodeCamp.org</a>
+        By <a href="https://github.com/lspaiva" target="_blank">Lucas Paiva</a>
       </p>
     </div>
   </body>

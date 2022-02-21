@@ -13,6 +13,7 @@ var cors = require('cors');
 // http://expressjs.com/en/starter/static-files.html
 app.use(express.static('public'));
 
+
 // http://expressjs.com/en/starter/basic-routing.html
 app.get("/", function (req, res) {
   res.sendFile(__dirname + '/views/index.html');
@@ -53,8 +54,17 @@ app.get('/api/:date', (req, res) => {
 });
 
 app.get('/api', (req,res) => {
-    resObject['unix'] = new Date().getTime();
+    resObject.unix = new Date().getTime();
     resObject.utc = new Date().toUTCString();
 
     res.json(resObject);
+});
+
+let bodyParser = require('body-parser')
+
+app.post('/api', bodyParser.urlencoded({ extended: false }), (req, res) => {
+  let inputDate = req.body.input
+  let getUrl = '/api/' + inputDate
+  
+  res.redirect(getUrl)
 })
